@@ -24,6 +24,7 @@ header form {
 
 header a:hover{
     font-weight: 700;
+    font-style: italic;
 }
 
 

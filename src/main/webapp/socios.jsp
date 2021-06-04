@@ -40,7 +40,7 @@
                     <a class="nav-link p-2" href="#">Disabled</a>
                   </li>
                   <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2 active" href="socios.jsp">Socios</a>
+                    <a class="nav-link p-2 active" href="SociosListarController">Socios</a>
                   </li>
                 </ul>
                 
@@ -69,14 +69,19 @@
       </header>
       <main class="container">
         <h1>Lista de Socios</h1>
+        
+         <jsp:include page="mensajes.jsp"></jsp:include>
+        
         <br>
-        <a href="formularioAlta.jsp">Añadir Nuevo Socio</a>
+        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a>
         <br><br>
         <form action="SociosListarController" method="get">
           <label for="filtrar" class="form-label">Buscar Socio</label>
           <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido o email">
           <br>
+          <div class="d-grid gap-2 col-6 mx-auto">
           <input type="submit" value="Filtrar" class="btn btn-block btn-primary">
+          </div>
           <br><br>
       </form>
 
@@ -113,7 +118,7 @@
 	            <td>${sIteracion.email}</td>
 	            <td>${sIteracion.dni}</td>
 	            <td><a href="SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Editar</a></td>
- 	            <td><a href="backoffice/participantes-eliminar?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Eliminar</a></td>
+ 	            <td><a href="SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Eliminar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         
@@ -122,6 +127,23 @@
           
           </tbody>
       </table>
+	 
+	 <script>
+          	
+          	function confirmarEliminacion(nombre){
+          		
+          		if (window.confirm("¿SEGURO QUE QUIERES ELIMINAR A "+ nombre + " ?")) {
+          			console.debug('Eliminamos');
+					
+				} else {
+	
+					event.preventDefault();//prevenir que el ancla haga su funcion
+					console.debug('No eliminamos')
+					
+				}
+          	}
+          
+          </script>
 
 
     </main>

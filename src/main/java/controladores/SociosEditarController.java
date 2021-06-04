@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.Socio;
 import modelo.dao.SocioDAO;
@@ -41,6 +42,8 @@ public class SociosEditarController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+
 		// Recoger parametros del formulario
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
@@ -65,17 +68,17 @@ public class SociosEditarController extends HttpServlet {
 				SocioDAO.update(s);
 			}
 
-			request.setAttribute("mensajeTipo", "success");
-			request.setAttribute("mensaje", "Datos Guardados");
+			session.setAttribute("mensajeTipo", "success");
+			session.setAttribute("mensaje", "Datos Guardados");
+			request.getRequestDispatcher("SociosListarController").forward(request, response);
 
 		} catch (Exception e) {
-			request.setAttribute("mensajeTipo", "Danger");
-			request.setAttribute("mensaje", "El email esta repetido");
+			session.setAttribute("mensajeTipo", "danger");
+			session.setAttribute("mensaje", "El email esta repetido");
+			request.setAttribute("titulo", "Modificar Socio");
+			request.setAttribute("socio", s);
+			request.getRequestDispatcher("formularioAlta.jsp").forward(request, response);
 		}
-
-		request.setAttribute("titulo", "Modificar Socio");
-		request.setAttribute("socio", s);
-		request.getRequestDispatcher("SociosListarController").forward(request, response);
 
 	}
 }

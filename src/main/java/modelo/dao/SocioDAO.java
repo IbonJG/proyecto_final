@@ -238,4 +238,35 @@ public class SocioDAO {
 
 	}
 
+	/**
+	 * Elimina un particpante por su identificador
+	 * 
+	 * @param id int identificador
+	 * @return true si elimina, false en caso contrario
+	 * @throws Exception no deberia lanzar
+	 */
+
+	public static boolean delete(int id) throws Exception {
+
+		boolean eliminado = false;
+		String sql = "DELETE FROM socios where id = ?;";
+
+		try (
+
+				Connection con = ConnectionHelper.getConnection();
+				PreparedStatement pst = con.prepareStatement(sql);
+
+		) {
+
+			pst.setInt(1, id);
+			if (pst.executeUpdate() == 1) {
+				eliminado = true;
+
+			}
+
+		}
+		return eliminado;
+
+	}
+
 }
