@@ -31,7 +31,7 @@
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="tienda.jsp">Tienda</a>
+                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="#">Disabled</a>
@@ -41,6 +41,9 @@
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="javadoc/index.html">JavaDoc</a>
               </li>
             </ul>
             
@@ -74,6 +77,7 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -85,7 +89,10 @@
         <div class="carousel-item">
           <img src="imagenes/fifa-21-kylian-mbappe_5y8kt6rcv8tf1kifrjd2ku44c.jpg" class="d-block w-100" alt="...">
         </div>
-      </div>
+      	<div class="carousel-item">
+          <img src="imagenes/Red_Dead_Redemption_2_Men_Rifles_Arthur_Morgan_Hat_580584_1920x1080.jpg" class="d-block w-100" alt="...">
+        </div>
+       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>

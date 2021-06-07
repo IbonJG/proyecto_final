@@ -2,6 +2,8 @@
 
 h1{
     color: white;
+    text-align: center;
+    padding-top: 1rem;
 }
 
 label{
@@ -10,4 +12,12 @@ label{
 
 thead{
     color: white;
+}
+
+td{
+	color: white;
+}
+
+body{
+	background-color: black;
 }

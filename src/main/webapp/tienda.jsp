@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"  %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,7 +34,7 @@
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2 active" href="tienda.jsp">Tienda</a>
+                <a class="nav-link p-2 active" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="#">Disabled</a>
@@ -81,17 +83,43 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Imagen</th>
+<!--                 <th scope="col">Imagen</th> -->
                 <th scope="col">Titulo</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Plataforma</th>
                 <th scope="col">Precio Alquiler</th>
                 <th scope="col">Precio Compra</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Plataforma</th>
                 <th scope="col">Alquilar</th>
                 <th scope="col">Comprar</th>
               </tr>
             </thead>
             <tbody>
+            <!-- 
+        	recorrer atributo con la lista de particpantes y pintar TR
+        	items="$ { participantes}" => Nombre del atributo que nos envia en controlador
+        	var="pIteracion"           => nombre de la variable que iteramos que es un Participante 
+        
+        	${p.nombre} es lo mismo que p.getNombre(), es una forma abreviada
+        
+        	for ( Participante pIteracion : participantes )
+        	
+        -->
+        <c:forEach var="tIteracion" items="${tienda}">
+	          <tr>
+	            <th scope="row">${tIteracion.id}</th>
+	            <td>${tIteracion.titulo}</td>
+	            <td>${tIteracion.precio_alquiler}</td>
+	            <td>${tIteracion.precio_comprar}</td>
+	            <td>${tIteracion.genero.nombre} (${tIteracion.genero.id})</td>
+	            <td>${tIteracion.plataforma.nombre} (${tIteracion.plataforma.id})</td>
+	            
+<%-- 	            <td><a href="SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Editar</a></td> --%>
+<%--  	            <td><a href="SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Eliminar</a></td> --%>
+	          </tr>
+	         </c:forEach> 
+	         
+        <!-- terminamos de recorrer -->
+          
             </tbody>
         </table>
 
