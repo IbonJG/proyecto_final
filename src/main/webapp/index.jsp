@@ -25,7 +25,7 @@
           <div class="navbar-collapse collapse show" id="bdNavbar">
             <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2 active" aria-current="page" href="#">Home</a>
+                <a class="nav-link p-2 active" aria-current="page" href="index.jsp">Home</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
@@ -38,6 +38,9 @@
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="SociosListarController">Socios</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
               </li>
             </ul>
             
@@ -121,6 +124,9 @@
       Cupiditate voluptatibus quae, sit, explicabo reiciendis dolore maiores eos impedit est harum quidem itaque praesentium, necessitatibus cumque qui ut distinctio aut labore. Beatae sed aspernatur eum distinctio, blanditiis nisi autem.
       Perspiciatis nemo tempore ipsa distinctio! Facere, sint quis inventore iste asperiores magni repudiandae iusto ipsum quas. Soluta, qui vitae? Nihil natus vero voluptas saepe nam necessitatibus totam eos, veniam tenetur.
     </p>
+    <br>
+    <br>
+    <br>
   </main>
   <footer>
     <section id="footer">

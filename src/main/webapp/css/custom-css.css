@@ -6,7 +6,7 @@ body{
 
 main{
     background-color: rgb(0, 0, 0);
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 main p{
@@ -57,6 +57,7 @@ footer li {
     list-style: none;   /* quitar el puntito a los LIs en las listas */
     margin-right: 10px;
 }
+
 
 footer .info {
     width: 70%;

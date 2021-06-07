@@ -17,51 +17,57 @@
 </head>
 <body>
     <header class="navbar navbar-expand-md navbar-dark bd-navbar">
-        <nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.jsp"><img src="imagenes/amazinggames.jpg" alt="" width="50" height="50" class="d-inline-block align-text-center"> Amazing Games</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="navbar-collapse collapse show" id="bdNavbar">
-                <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" aria-current="page" href="index.jsp">Home</a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2 active" href="tienda.jsp">Tienda</a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="#">Disabled</a>
-                  </li>
-                </ul>
-                
-                <hr class="d-md-none text-white-50">
-                
-                <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="login.jsp"><i class="fas fa-user"></i> Login</a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="https://www.playstation.com" target="_blank"><i class="fab fa-playstation"></i></a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="https://www.xbox.com" target="_blank"><i class="fab fa-xbox"></i></a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="https://store.steampowered.com" target="_blank"><i class="fab fa-steam"></i></a>
-                  </li>
-                  <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-      </header>
+    <nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.jsp"><img src="imagenes/amazinggames.jpg" alt="" width="50" height="50" class="d-inline-block align-text-center"> Amazing Games</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse show" id="bdNavbar">
+            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" aria-current="page" href="index.jsp">Home</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2 active" href="tienda.jsp">Tienda</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="#">Disabled</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="SociosListarController">Socios</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
+              </li>
+            </ul>
+            
+            <hr class="d-md-none text-white-50">
+            
+            <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="login.jsp"><i class="fas fa-user"></i> Login</a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="https://www.playstation.com" target="_blank"><i class="fab fa-playstation"></i></a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="https://www.xbox.com" target="_blank"><i class="fab fa-xbox"></i></a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="https://store.steampowered.com" target="_blank"><i class="fab fa-steam"></i></a>
+              </li>
+              <li class="nav-item col-6 col-md-auto">
+                <a class="nav-link p-2" href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>
       <main class="container">
           <h1>Videojuegos</h1>
           <form action="backoffice/participantes-listar" method="get">
