@@ -16,6 +16,7 @@
         <title>Games Awesome</title>
     </head>
 <body>
+	<jsp:include page="mensajes.jsp"></jsp:include>
     <main class="container w-25">
 	    <h1>Iniciar Sesion</h1><br>
 	    <form action="login" method="post">

@@ -281,7 +281,7 @@ public class SocioDAO {
 	public static Socio login(String email, String dni) {
 
 		Socio socio = null;
-		String sql = "SELECT id, nombre, apellido1, apellido2, email, dni FROM socios WHERE email = ? AND dni = ?; ";
+		String sql = "SELECT id, nombre, apellido1, apellido2, email, dni, administrador FROM socios WHERE email = ? AND dni = ?; ";
 
 		try (Connection con = ConnectionHelper.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 
@@ -302,7 +302,7 @@ public class SocioDAO {
 					String colApellido2 = rs.getString("apellido2");
 					String colEmail = rs.getString("email");
 					String colDni = rs.getString("dni");
-
+					boolean colAdministrador = rs.getBoolean("administrador");
 					// crear y setear usuario
 					socio = new Socio();
 					socio.setId(colId);
@@ -311,6 +311,7 @@ public class SocioDAO {
 					socio.setApellido2(colApellido2);
 					socio.setEmail(colEmail);
 					socio.setDni(colDni);
+					socio.setAdministrador(colAdministrador);
 
 				}
 			}

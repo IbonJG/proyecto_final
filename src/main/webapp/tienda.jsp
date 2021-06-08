@@ -72,6 +72,9 @@
   </header>
       <main class="container">
           <h1>Videojuegos</h1>
+<!--           mensaje de login correcto -->
+          <jsp:include page="mensajes.jsp"></jsp:include>
+          
           <form action="backoffice/participantes-listar" method="get">
 	        <label for="filtrar" class="form-label">Buscar Juego</label>
 	        <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido o email">

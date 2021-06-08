@@ -34,7 +34,7 @@
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="tienda.jsp">Tienda</a>
+                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="#">Disabled</a>

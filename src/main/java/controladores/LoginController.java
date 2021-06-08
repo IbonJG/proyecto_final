@@ -38,6 +38,7 @@ public class LoginController extends HttpServlet {
 		String mensaje = "";
 		String vista = "";
 
+		HttpSession session = request.getSession();
 		// recoger parametros del formulario login
 		String email = request.getParameter("nombre");
 		String dni = request.getParameter("contrasenia");
@@ -49,19 +50,24 @@ public class LoginController extends HttpServlet {
 		if (socio != null) {
 			mensaje = "Ongi Etorri";
 
+			// comprobar el ROL
+			if (socio.isAdministrador()) {
+				vista = "EmpleadosListarController"; // nombre del controlador, no quiero ir a la JSP
+			} else {
+				vista = "noticias.jsp";
+			}
 			// guardamos el usuario logeado en session como un atributo
-			HttpSession session = request.getSession();
+			// HttpSession session = request.getSession();
 			session.setAttribute("usuario_logeado", socio);
 			session.setMaxInactiveInterval(60 * 5); // 5 min
-
 		} else {
 			mensaje = "Credenciales incorrectas, prueba de nuevo";
-			vista = "TiendaListarController";
+			vista = "login.jsp";
 		}
 
 		// enviar atributos para vistar
-		request.setAttribute("mensajeTipo", "success");
-		request.setAttribute("mensaje", mensaje);
+		session.setAttribute("mensajeTipo", "success");
+		session.setAttribute("mensaje", mensaje);
 
 		// Ir a una vista
 

@@ -34,7 +34,7 @@
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="tienda.jsp">Tienda</a>
+                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="#">Disabled</a>
@@ -77,7 +77,8 @@
          <jsp:include page="mensajes.jsp"></jsp:include>
         
         <br>
-        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a>
+        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a><br><br>
+        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Videojuego</a>
         <br><br>
         <form action="SociosListarController" method="get">
           <label for="filtrar" class="form-label">Buscar Socio</label>

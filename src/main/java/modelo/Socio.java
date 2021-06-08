@@ -8,6 +8,7 @@ public class Socio {
 	private String apellido2;
 	private String email;
 	private String dni;
+	private boolean administrador;
 
 	// generate constructor from superclass
 	public Socio() {
@@ -18,6 +19,7 @@ public class Socio {
 		this.apellido2 = "";
 		this.email = "";
 		this.dni = "";
+		this.administrador = false;
 	}
 
 	// getters and setters
@@ -69,10 +71,18 @@ public class Socio {
 		this.dni = dni;
 	}
 
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
+	}
+
 	@Override
 	public String toString() {
 		return "Socio [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", email=" + email + ", dni=" + dni + "]";
+				+ ", email=" + email + ", dni=" + dni + ", administrador=" + administrador + "]";
 	}
 
 }

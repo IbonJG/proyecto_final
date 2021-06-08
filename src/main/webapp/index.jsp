@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,9 +51,17 @@
             <hr class="d-md-none text-white-50">
             
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <c:if test="${usuario_logeado == null }">
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="login.jsp"><i class="fas fa-user"></i> Login</a>
               </li>
+              </c:if>
+              <c:if test="${usuario_logeado != null }">
+	         		<li class="nav-item col-6 col-md-auto">
+	           			<b>${usuario_logeado.nombre}</b>
+	           			<a class="nav-link p-2" href="logout"><i class="fas fa-times"></i><b> Cerrar Sesion</b></a>
+	         		</li>
+        		 </c:if>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="https://www.playstation.com" target="_blank"><i class="fab fa-playstation"></i></a>
               </li>
