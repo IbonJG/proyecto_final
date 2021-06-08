@@ -269,4 +269,57 @@ public class SocioDAO {
 
 	}
 
+	/**
+	 * Busca en la bbdd el usuario por su nombre y password
+	 * 
+	 * @param nombre   String nombre del usuario
+	 * @param password String con su contraseña
+	 * @return usuario con datos si existe, null su no existe
+	 */
+
+	// para ver si existe el usuario en la bbdd, buscado por nombre y password
+	public static Socio login(String email, String dni) {
+
+		Socio socio = null;
+		String sql = "SELECT id, nombre, apellido1, apellido2, email, dni FROM socios WHERE email = ? AND dni = ?; ";
+
+		try (Connection con = ConnectionHelper.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
+
+			// sustituir ? de la consulta por parametros
+			pst.setString(1, email);
+			pst.setString(2, dni);
+
+			try (ResultSet rs = pst.executeQuery()) {
+
+				while (rs.next()) {
+
+					// Hemos encontrado el usuario por su nombre y password
+
+					// cogemos los valores de las columnas
+					int colId = rs.getInt("id");
+					String colNombre = rs.getString("nombre");
+					String colApellido1 = rs.getString("apellido1");
+					String colApellido2 = rs.getString("apellido2");
+					String colEmail = rs.getString("email");
+					String colDni = rs.getString("dni");
+
+					// crear y setear usuario
+					socio = new Socio();
+					socio.setId(colId);
+					socio.setNombre(colNombre);
+					socio.setApellido1(colApellido1);
+					socio.setApellido2(colApellido2);
+					socio.setEmail(colEmail);
+					socio.setDni(colDni);
+
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return socio;
+	}
+
 }

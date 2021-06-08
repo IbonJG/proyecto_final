@@ -20,10 +20,10 @@
 	    <h1>Iniciar Sesion</h1><br>
 	    <form action="login" method="post">
 	        <label for="nombre" class="form-label"><i class="fas fa-user"></i> Usuario</label>
-	        <input type="text" name="nombre" required autofocus class="form-control" placeholder="Nombre o Nick"><br>
+	        <input type="text" name="nombre" required autofocus class="form-control" placeholder="direccion@correo"><br>
 	        
 	        <label for="password" class="form-label"><i class="fas fa-key"></i> Contraseña</label>
-	        <input type="password" name="contrasenia" maxlength="12" required class="form-control" placeholder="Contraseña"><br>
+	        <input type="password" name="contrasenia" maxlength="12" required class="form-control" placeholder="dni"><br>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <input type="submit" value="Enviar" class="btn btn-block btn-dark mt-1 mb-3">
             </div>

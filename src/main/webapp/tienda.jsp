@@ -111,10 +111,9 @@
 	            <td>${tIteracion.precio_alquiler}</td>
 	            <td>${tIteracion.precio_comprar}</td>
 	            <td>${tIteracion.genero.nombre} (${tIteracion.genero.id})</td>
-	            <td>${tIteracion.plataforma.nombre} (${tIteracion.plataforma.id})</td>
-	            
-<%-- 	            <td><a href="SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Editar</a></td> --%>
-<%--  	            <td><a href="SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Eliminar</a></td> --%>
+	            <td>${tIteracion.plataforma.nombre} (${tIteracion.plataforma.id})</td>     
+ 	       		<td><a href="SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Alquilar</a></td>
+  	            <td><a href="SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Comprar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         

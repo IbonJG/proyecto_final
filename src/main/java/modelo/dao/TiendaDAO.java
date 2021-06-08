@@ -22,10 +22,10 @@ public class TiendaDAO {
 	public static ArrayList<Tienda> getAll() {
 
 		ArrayList<Tienda> coleccion = new ArrayList<Tienda>();
-		String sql = "SELECT * FROM videojuegos as v\r\n"
-				+ "			INNER JOIN genero as g ON v.id_genero = g.id \r\n"
-				+ "			INNER JOIN videojuego_plataforma as vp ON v.id = vp.id_videojuego\r\n"
-				+ "			INNER JOIN plataforma as p ON vp.id_plataforma = p.id; ";
+		String sql = "SELECT v.id, titulo, precio_alquiler, precio_venta, g.nombre as nombre_genero, g.id as genero_id, p.id as plataforma_id, p.nombre as nombre_plataforma FROM videojuegos as v\r\n"
+				+ "							INNER JOIN genero as g ON v.id_genero = g.id\r\n"
+				+ "							INNER JOIN videojuego_plataforma as vp ON v.id = vp.id_videojuego\r\n"
+				+ "							INNER JOIN plataforma as p ON vp.id_plataforma = p.id; ";
 
 		try (
 
@@ -41,7 +41,7 @@ public class TiendaDAO {
 				Tienda t = new Tienda();
 
 				// cogemos los valores de las columnas
-				int colId = rs.getInt("videojuego_id");
+				int colId = rs.getInt("id");
 				String colTitulo = rs.getString("titulo");
 				int colPrecio_alquiler = rs.getInt("precio_alquiler");
 				int colPrecio_venta = rs.getInt("precio_venta");
@@ -53,7 +53,7 @@ public class TiendaDAO {
 
 				// genero
 				int colId_genero = rs.getInt("genero_id");
-				String nombre = rs.getString("nombre");
+				String nombre = rs.getString("nombre_genero");
 
 				Genero g = new Genero();
 				g.setId(colId_genero);
@@ -63,7 +63,7 @@ public class TiendaDAO {
 
 				// plataforma
 				int ColId_plataforma = rs.getInt("plataforma_id");
-				String nombre_plat = rs.getString("nombre");
+				String nombre_plat = rs.getString("nombre_plataforma");
 
 				Plataforma p = new Plataforma();
 				p.setId(ColId_plataforma);
