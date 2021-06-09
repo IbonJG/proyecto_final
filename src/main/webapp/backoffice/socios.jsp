@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +15,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <!-- mi css-->
     <link rel="stylesheet" href="css/custom-css.css">
-    <link rel="stylesheet" href="css/empleados.css">
+    <link rel="stylesheet" href="css/socios.css">
     <title>Games Awesome</title>
 </head>
 <body>
-  <header class="navbar navbar-expand-md navbar-dark bd-navbar">
+   <header class="navbar navbar-expand-md navbar-dark bd-navbar">
     <nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.jsp"><img src="imagenes/amazinggames.jpg" alt="" width="50" height="50" class="d-inline-block align-text-center"> Amazing Games</a>
@@ -36,20 +37,19 @@
               <!-- Visible solo para administradores y socios logueados -->
               <c:if test="${usuario_logeado != null }" >
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
+	                <a class="nav-link p-2" href="backoffice/TiendaListarController">Tienda</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
+	                <a class="nav-link p-2" href="backoffice/perfil.jsp">Perfil</a>
 	              </li>
               </c:if> 
-              
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2" href="SociosListarController">Socios</a>
+	                <a class="nav-link p-2 active" href="backoffice/SociosListarController">Socios</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2 active" href="EmpleadosListarController">Empleados</a>
+	                <a class="nav-link p-2" href="backoffice/EmpleadosListarController">Empleados</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
 	                <a class="nav-link p-2" href="javadoc/index.html">JavaDoc</a>
@@ -88,29 +88,17 @@
         </div>
       </nav>
   </header>
-<body>
-<main class="container">
-        <h1>Lista de Empleados</h1>
+      <main class="container">
+        <h1>Lista de Socios</h1>
         
          <jsp:include page="mensajes.jsp"></jsp:include>
         
         <br>
-        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a>
+        <a href="backoffice/SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a>
         <br><br>
-        <form action="SociosListarController" method="get">
+        <form action="backoffice/SociosListarController" method="get">
           <label for="filtrar" class="form-label">Buscar Socio</label>
           <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido o email">
-          <br>
-          <div class="d-grid gap-2 col-6 mx-auto">
-          <input type="submit" value="Filtrar" class="btn btn-block btn-primary">
-          </div>
-          <br><br>
-      	</form>
-      	<a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Videojuego</a>
-        <br><br>
-      	<form action="TiendaListarController" method="get">
-          <label for="filtrar" class="form-label">Buscar Videojuego</label>
-          <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por titulo">
           <br>
           <div class="d-grid gap-2 col-6 mx-auto">
           <input type="submit" value="Filtrar" class="btn btn-block btn-primary">
@@ -123,10 +111,12 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-              <th scope="col">ROL</th>
-<!--               <th scope="col">Editar</th> -->
-<!--               <th scope="col">Eliminar</th> -->
+              <th scope="col">Apellido1</th>
+              <th scope="col">Apellido2</th>
+              <th scope="col">Email</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -140,14 +130,16 @@
         	for ( Participante pIteracion : participantes )
         	
         -->
-        <c:forEach var="eIteracion" items="${empleados}">
+        <c:forEach var="sIteracion" items="${socios}">
 	          <tr>
-	            <th scope="row">${eIteracion.id}</th>
-	            <td>${eIteracion.nombre}</td>
-	            <td>${eIteracion.apellido}</td>
-	            <td>${eIteracion.rol}</td>
-<%-- 	            <td><a href="SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Editar</a></td> --%>
-<%--  	            <td><a href="SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Eliminar</a></td> --%>
+	            <th scope="row">${sIteracion.id}</th>
+	            <td>${sIteracion.nombre}</td>
+	            <td>${sIteracion.apellido1}</td>
+	            <td>${sIteracion.apellido2}</td>
+	            <td>${sIteracion.email}</td>
+	            <td>${sIteracion.dni}</td>
+	            <td><a href="backoffice/SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Editar</a></td>
+ 	            <td><a href="backoffice/SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Eliminar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         
@@ -156,7 +148,26 @@
           
           </tbody>
       </table>
-</main>
+	 
+	 <script>
+          	
+          	function confirmarEliminacion(nombre){
+          		
+          		if (window.confirm("¿SEGURO QUE QUIERES ELIMINAR A "+ nombre + " ?")) {
+          			console.debug('Eliminamos');
+					
+				} else {
+	
+					event.preventDefault();//prevenir que el ancla haga su funcion
+					console.debug('No eliminamos')
+					
+				}
+          	}
+          
+          </script>
+
+
+    </main>
 
     <footer>
         <section id="footer">
@@ -216,6 +227,5 @@
           </div>
         </section>
       </footer>
-
 </body>
 </html>

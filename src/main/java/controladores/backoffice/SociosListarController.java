@@ -1,4 +1,4 @@
-package controladores;
+package controladores.backoffice;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import modelo.dao.SocioDAO;
 /**
  * Servlet implementation class SociosListarController
  */
-@WebServlet("/SociosListarController")
+@WebServlet("/backoffice/SociosListarController")
 public class SociosListarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

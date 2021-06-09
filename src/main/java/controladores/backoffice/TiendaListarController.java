@@ -1,4 +1,4 @@
-package controladores;
+package controladores.backoffice;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import modelo.dao.TiendaDAO;
 /**
  * Servlet implementation class TiendaListarController
  */
-@WebServlet("/TiendaListarController")
+@WebServlet("/backoffice/TiendaListarController")
 public class TiendaListarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -1,4 +1,4 @@
-package controladores;
+package controladores.backoffice;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import modelo.dao.EmpleadoDAO;
 /**
  * Servlet implementation class EmpleadosListarController
  */
-@WebServlet("/EmpleadosListarController")
+@WebServlet("/backoffice/EmpleadosListarController")
 public class EmpleadosListarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

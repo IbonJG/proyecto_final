@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<base href="<%=request.getContextPath()%>/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,20 +37,20 @@
               <!-- Visible solo para administradores y socios logueados -->
               <c:if test="${usuario_logeado != null }" >
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2 active" href="TiendaListarController">Tienda</a>
+	                <a class="nav-link p-2 active" href="backoffice/TiendaListarController">Tienda</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
+	                <a class="nav-link p-2" href="backoffice/perfil.jsp">Perfil</a>
 	              </li>
               </c:if> 
               
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2" href="SociosListarController">Socios</a>
+	                <a class="nav-link p-2" href="backoffice/SociosListarController">Socios</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
+	                <a class="nav-link p-2" href="backoffice/EmpleadosListarController">Empleados</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
 	                <a class="nav-link p-2" href="javadoc/index.html">JavaDoc</a>

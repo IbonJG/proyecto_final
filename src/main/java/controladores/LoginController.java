@@ -52,9 +52,9 @@ public class LoginController extends HttpServlet {
 
 			// comprobar el ROL
 			if (socio.isAdministrador()) {
-				vista = "EmpleadosListarController"; // nombre del controlador, no quiero ir a la JSP
+				vista = "backoffice/EmpleadosListarController"; // nombre del controlador, no quiero ir a la JSP
 			} else {
-				vista = "perfil.jsp";
+				vista = "backoffice/perfil.jsp";
 			}
 			// guardamos el usuario logeado en session como un atributo
 			// HttpSession session = request.getSession();
