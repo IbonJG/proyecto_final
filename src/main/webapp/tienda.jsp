@@ -37,22 +37,36 @@
                 <a class="nav-link p-2 active" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="#">Disabled</a>
+                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
               </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="SociosListarController">Socios</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
-              </li>
+              <!-- Visible solo para administradores -->
+              <c:if test="${usuario_logeado.administrador == true }">
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="SociosListarController">Socios</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="javadoc/index.html">JavaDoc</a>
+	              </li>
+	          </c:if>
             </ul>
             
             <hr class="d-md-none text-white-50">
             
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <c:if test="${usuario_logeado == null }">
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="login.jsp"><i class="fas fa-user"></i> Login</a>
               </li>
+              </c:if>
+              <c:if test="${usuario_logeado != null }">
+	         		<li class="nav-item col-6 col-md-auto">
+	           			<b>${usuario_logeado.nombre}</b>
+	           			<a class="nav-link p-2" href="logout"><i class="fas fa-times"></i><b> Cerrar Sesion</b></a>
+	         		</li>
+        		 </c:if>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="https://www.playstation.com" target="_blank"><i class="fab fa-playstation"></i></a>
               </li>
@@ -71,14 +85,14 @@
       </nav>
   </header>
       <main class="container">
-          <h1>Videojuegos</h1>
-<!--           mensaje de login correcto -->
-          <jsp:include page="mensajes.jsp"></jsp:include>
-          
-          <form action="backoffice/participantes-listar" method="get">
+          <h1>Videojuegos</h1>         
+          <form action="#" method="get">
 	        <label for="filtrar" class="form-label">Buscar Juego</label>
-	        <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido o email">
+	        <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por titulo">
+	        <br>
+	        <div class="d-grid gap-2 col-6 mx-auto">
 	        <input type="submit" value="Filtrar" class="btn btn-block btn-primary">
+	        </div>
 	        <br><br>
         </form>
 
@@ -86,7 +100,7 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-<!--                 <th scope="col">Imagen</th> -->
+                <th scope="col">Imagen</th>
                 <th scope="col">Titulo</th>
                 <th scope="col">Precio Alquiler</th>
                 <th scope="col">Precio Compra</th>
@@ -110,13 +124,14 @@
         <c:forEach var="tIteracion" items="${tienda}">
 	          <tr>
 	            <th scope="row">${tIteracion.id}</th>
+	            <td><img src="${tIteracion.imagen}"> </td>
 	            <td>${tIteracion.titulo}</td>
 	            <td>${tIteracion.precio_alquiler}</td>
 	            <td>${tIteracion.precio_comprar}</td>
 	            <td>${tIteracion.genero.nombre} (${tIteracion.genero.id})</td>
 	            <td>${tIteracion.plataforma.nombre} (${tIteracion.plataforma.id})</td>     
- 	       		<td><a href="SociosEditarController?id=${sIteracion.id}&formularioAlta.jsp" class="btn btn-primary">Alquilar</a></td>
-  	            <td><a href="SociosEliminarController?id=${sIteracion.id}" onclick="confirmarEliminacion('${sIteracion.nombre}')"  class="btn btn-danger">Comprar</a></td>
+ 	       		<td><a href="#" class="btn btn-primary">Alquilar</a></td>
+  	            <td><a href="#" class="btn btn-danger">Comprar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         

@@ -37,22 +37,36 @@
                 <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="#">Disabled</a>
+                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
               </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2 active" href="SociosListarController">Socios</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
-              </li>
+              <!-- Visible solo para administradores -->
+              <c:if test="${usuario_logeado.administrador == true }">
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2 active" href="SociosListarController">Socios</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="javadoc/index.html">JavaDoc</a>
+	              </li>
+	          </c:if>
             </ul>
             
             <hr class="d-md-none text-white-50">
             
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <c:if test="${usuario_logeado == null }">
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="login.jsp"><i class="fas fa-user"></i> Login</a>
               </li>
+              </c:if>
+              <c:if test="${usuario_logeado != null }">
+	         		<li class="nav-item col-6 col-md-auto">
+	           			<b>${usuario_logeado.nombre}</b>
+	           			<a class="nav-link p-2" href="logout"><i class="fas fa-times"></i><b> Cerrar Sesion</b></a>
+	         		</li>
+        		 </c:if>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="https://www.playstation.com" target="_blank"><i class="fab fa-playstation"></i></a>
               </li>

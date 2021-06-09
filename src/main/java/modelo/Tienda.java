@@ -3,6 +3,7 @@ package modelo;
 public class Tienda {
 
 	private int id;
+	private String imagen;
 	private String titulo;
 	private int precio_alquiler;
 	private int precio_comprar;
@@ -14,6 +15,7 @@ public class Tienda {
 	public Tienda() {
 		super();
 		this.id = 0;
+		this.imagen = "";
 		this.titulo = "";
 		this.precio_alquiler = 0;
 		this.precio_comprar = 0;
@@ -30,6 +32,14 @@ public class Tienda {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public String getTitulo() {
@@ -74,8 +84,8 @@ public class Tienda {
 
 	@Override
 	public String toString() {
-		return "Tienda [id=" + id + ", titulo=" + titulo + ", precio_alquiler=" + precio_alquiler + ", precio_comprar="
-				+ precio_comprar + ", genero=" + genero + ", plataforma=" + plataforma + "]";
+		return "Tienda [id=" + id + ", imagen=" + imagen + ", titulo=" + titulo + ", precio_alquiler=" + precio_alquiler
+				+ ", precio_comprar=" + precio_comprar + ", genero=" + genero + ", plataforma=" + plataforma + "]";
 	}
 
 }

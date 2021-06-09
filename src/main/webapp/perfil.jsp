@@ -13,6 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <!-- mi css-->
     <link rel="stylesheet" href="css/custom-css.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <title>Games Awesome</title>
 </head>
 <body>
@@ -26,21 +27,17 @@
           <div class="navbar-collapse collapse show" id="bdNavbar">
             <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2 active" aria-current="page" href="index.jsp">Home</a>
+                <a class="nav-link p-2" aria-current="page" href="index.jsp">Home</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
-               <!-- Visible solo para administradores y socios logueados -->
-               <c:if test="${usuario_logeado.administrador == true }" || "${usuario_logeado.administrador == false }" >
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
+                <a class="nav-link p-2 active" href="perfil.jsp">Perfil</a>
               </li>
-              </c:if>
-              
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
 	              <li class="nav-item col-6 col-md-auto">
@@ -86,72 +83,52 @@
         </div>
       </nav>
   </header>
-  <main>
-  <br><br>
-    <div id="carouselExampleIndicators" class="carousel slide container" data-bs-ride="carousel" >
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="imagenes/c018ec69af05fa107584a81d7ddf5bf2.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="imagenes/zeus-s3-wz-social-share.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="imagenes/fifa-21-kylian-mbappe_5y8kt6rcv8tf1kifrjd2ku44c.jpg" class="d-block w-100" alt="...">
-        </div>
-      	<div class="carousel-item">
-          <img src="imagenes/Red_Dead_Redemption_2_Men_Rifles_Arthur_Morgan_Hat_580584_1920x1080.jpg" class="d-block w-100" alt="...">
-        </div>
-       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <br><br>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit impedit dolores iusto libero repudiandae sequi totam accusamus nihil fuga tempore temporibus, maiores quibusdam quidem, quam nostrum. Cum rerum voluptate iste!
-      Laboriosam eaque sit dignissimos. Suscipit cumque odit consequatur repudiandae dignissimos aliquam, minus accusamus molestiae illo dolor culpa tenetur enim eveniet quas repellat aperiam, impedit possimus incidunt animi. Nobis, iste debitis!
-      In quidem eius accusamus ratione esse et veniam aut assumenda reiciendis, repudiandae placeat mollitia non architecto libero quibusdam voluptatem corrupti ipsa id sunt quod minima pariatur labore cum optio. Qui.
-      Cupiditate voluptatibus quae, sit, explicabo reiciendis dolore maiores eos impedit est harum quidem itaque praesentium, necessitatibus cumque qui ut distinctio aut labore. Beatae sed aspernatur eum distinctio, blanditiis nisi autem.
-      Perspiciatis nemo tempore ipsa distinctio! Facere, sint quis inventore iste asperiores magni repudiandae iusto ipsum quas. Soluta, qui vitae? Nihil natus vero voluptas saepe nam necessitatibus totam eos, veniam tenetur.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit impedit dolores iusto libero repudiandae sequi totam accusamus nihil fuga tempore temporibus, maiores quibusdam quidem, quam nostrum. Cum rerum voluptate iste!
-      Laboriosam eaque sit dignissimos. Suscipit cumque odit consequatur repudiandae dignissimos aliquam, minus accusamus molestiae illo dolor culpa tenetur enim eveniet quas repellat aperiam, impedit possimus incidunt animi. Nobis, iste debitis!
-      In quidem eius accusamus ratione esse et veniam aut assumenda reiciendis, repudiandae placeat mollitia non architecto libero quibusdam voluptatem corrupti ipsa id sunt quod minima pariatur labore cum optio. Qui.
-      Cupiditate voluptatibus quae, sit, explicabo reiciendis dolore maiores eos impedit est harum quidem itaque praesentium, necessitatibus cumque qui ut distinctio aut labore. Beatae sed aspernatur eum distinctio, blanditiis nisi autem.
-      Perspiciatis nemo tempore ipsa distinctio! Facere, sint quis inventore iste asperiores magni repudiandae iusto ipsum quas. Soluta, qui vitae? Nihil natus vero voluptas saepe nam necessitatibus totam eos, veniam tenetur.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit impedit dolores iusto libero repudiandae sequi totam accusamus nihil fuga tempore temporibus, maiores quibusdam quidem, quam nostrum. Cum rerum voluptate iste!
-      Laboriosam eaque sit dignissimos. Suscipit cumque odit consequatur repudiandae dignissimos aliquam, minus accusamus molestiae illo dolor culpa tenetur enim eveniet quas repellat aperiam, impedit possimus incidunt animi. Nobis, iste debitis!
-      In quidem eius accusamus ratione esse et veniam aut assumenda reiciendis, repudiandae placeat mollitia non architecto libero quibusdam voluptatem corrupti ipsa id sunt quod minima pariatur labore cum optio. Qui.
-      Cupiditate voluptatibus quae, sit, explicabo reiciendis dolore maiores eos impedit est harum quidem itaque praesentium, necessitatibus cumque qui ut distinctio aut labore. Beatae sed aspernatur eum distinctio, blanditiis nisi autem.
-      Perspiciatis nemo tempore ipsa distinctio! Facere, sint quis inventore iste asperiores magni repudiandae iusto ipsum quas. Soluta, qui vitae? Nihil natus vero voluptas saepe nam necessitatibus totam eos, veniam tenetur.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit impedit dolores iusto libero repudiandae sequi totam accusamus nihil fuga tempore temporibus, maiores quibusdam quidem, quam nostrum. Cum rerum voluptate iste!
-      Laboriosam eaque sit dignissimos. Suscipit cumque odit consequatur repudiandae dignissimos aliquam, minus accusamus molestiae illo dolor culpa tenetur enim eveniet quas repellat aperiam, impedit possimus incidunt animi. Nobis, iste debitis!
-      In quidem eius accusamus ratione esse et veniam aut assumenda reiciendis, repudiandae placeat mollitia non architecto libero quibusdam voluptatem corrupti ipsa id sunt quod minima pariatur labore cum optio. Qui.
-      Cupiditate voluptatibus quae, sit, explicabo reiciendis dolore maiores eos impedit est harum quidem itaque praesentium, necessitatibus cumque qui ut distinctio aut labore. Beatae sed aspernatur eum distinctio, blanditiis nisi autem.
-      Perspiciatis nemo tempore ipsa distinctio! Facere, sint quis inventore iste asperiores magni repudiandae iusto ipsum quas. Soluta, qui vitae? Nihil natus vero voluptas saepe nam necessitatibus totam eos, veniam tenetur.
-    </p>
-    <br>
-    <br>
-    <br>
-  </main>
-  <footer>
+<main>
+<h1>Hola ${usuario_logeado.nombre} estas en tu perfil</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</main>
+<footer>
     <section id="footer">
       <div class="container">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
@@ -209,7 +186,5 @@
       </div>
     </section>
   </footer>
-    <!-- JavaScritp para bootstrap 5.0.0-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-    </body>
-    </html>
+</body>
+</html>

@@ -48,13 +48,13 @@ public class LoginController extends HttpServlet {
 		Socio socio = SocioDAO.login(email, dni);
 
 		if (socio != null) {
-			mensaje = "Ongi Etorri";
+			mensaje = "Bienvenido";
 
 			// comprobar el ROL
 			if (socio.isAdministrador()) {
 				vista = "EmpleadosListarController"; // nombre del controlador, no quiero ir a la JSP
 			} else {
-				vista = "noticias.jsp";
+				vista = "perfil.jsp";
 			}
 			// guardamos el usuario logeado en session como un atributo
 			// HttpSession session = request.getSession();

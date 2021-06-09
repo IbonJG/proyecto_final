@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- CSS para bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-        <!-- fontawesome -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-        <!-- mi css-->
-        <link rel="stylesheet" href="css/custom-css.css">
-        <link rel="stylesheet" href="css/noticias.css">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS para bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- mi css-->
+    <link rel="stylesheet" href="css/custom-css.css">
+    <link rel="stylesheet" href="css/noticias.css">
         <!-- <link rel="stylesheet" href="css/login.css">-->
         <title>Games Awesome</title>
     </head>
@@ -36,22 +37,36 @@
                 <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
               </li>
               <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="#">Disabled</a>
+                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
               </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="SociosListarController">Socios</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
-              </li>
+              <!-- Visible solo para administradores -->
+              <c:if test="${usuario_logeado.administrador == true }">
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="SociosListarController">Socios</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="EmpleadosListarController">Empleados</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="javadoc/index.html">JavaDoc</a>
+	              </li>
+	          </c:if>
             </ul>
             
             <hr class="d-md-none text-white-50">
             
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <c:if test="${usuario_logeado == null }">
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="login.jsp"><i class="fas fa-user"></i> Login</a>
               </li>
+              </c:if>
+              <c:if test="${usuario_logeado != null }">
+	         		<li class="nav-item col-6 col-md-auto">
+	           			<b>${usuario_logeado.nombre}</b>
+	           			<a class="nav-link p-2" href="logout"><i class="fas fa-times"></i><b> Cerrar Sesion</b></a>
+	         		</li>
+        		 </c:if>
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="https://www.playstation.com" target="_blank"><i class="fab fa-playstation"></i></a>
               </li>

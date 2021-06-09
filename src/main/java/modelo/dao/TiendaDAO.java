@@ -22,7 +22,7 @@ public class TiendaDAO {
 	public static ArrayList<Tienda> getAll() {
 
 		ArrayList<Tienda> coleccion = new ArrayList<Tienda>();
-		String sql = "SELECT v.id, titulo, precio_alquiler, precio_venta, g.nombre as nombre_genero, g.id as genero_id, p.id as plataforma_id, p.nombre as nombre_plataforma FROM videojuegos as v\r\n"
+		String sql = "SELECT v.id, imagen, titulo, precio_alquiler, precio_venta, g.nombre as nombre_genero, g.id as genero_id, p.id as plataforma_id, p.nombre as nombre_plataforma FROM videojuegos as v\r\n"
 				+ "							INNER JOIN genero as g ON v.id_genero = g.id\r\n"
 				+ "							INNER JOIN videojuego_plataforma as vp ON v.id = vp.id_videojuego\r\n"
 				+ "							INNER JOIN plataforma as p ON vp.id_plataforma = p.id; ";
@@ -42,11 +42,13 @@ public class TiendaDAO {
 
 				// cogemos los valores de las columnas
 				int colId = rs.getInt("id");
+				String colImagen = rs.getString("imagen");
 				String colTitulo = rs.getString("titulo");
 				int colPrecio_alquiler = rs.getInt("precio_alquiler");
 				int colPrecio_venta = rs.getInt("precio_venta");
 
 				t.setId(colId);
+				t.setImagen(colImagen);
 				t.setTitulo(colTitulo);
 				t.setPrecio_alquiler(colPrecio_alquiler);
 				t.setPrecio_comprar(colPrecio_venta);
