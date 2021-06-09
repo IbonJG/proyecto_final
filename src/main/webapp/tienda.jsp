@@ -33,12 +33,16 @@
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2 active" href="TiendaListarController">Tienda</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
-              </li>
+              <!-- Visible solo para administradores y socios logueados -->
+              <c:if test="${usuario_logeado != null }" >
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2 active" href="TiendaListarController">Tienda</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
+	              </li>
+              </c:if> 
+              
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
 	              <li class="nav-item col-6 col-md-auto">
@@ -124,14 +128,14 @@
         <c:forEach var="tIteracion" items="${tienda}">
 	          <tr>
 	            <th scope="row">${tIteracion.id}</th>
-	            <td><img src="${tIteracion.imagen}"> </td>
+	            <td><img class="caratula" src="${tIteracion.imagen}"> </td>
 	            <td>${tIteracion.titulo}</td>
 	            <td>${tIteracion.precio_alquiler}</td>
 	            <td>${tIteracion.precio_comprar}</td>
 	            <td>${tIteracion.genero.nombre} (${tIteracion.genero.id})</td>
 	            <td>${tIteracion.plataforma.nombre} (${tIteracion.plataforma.id})</td>     
  	       		<td><a href="#" class="btn btn-primary">Alquilar</a></td>
-  	            <td><a href="#" class="btn btn-danger">Comprar</a></td>
+  	            <td><a href="#" class="btn btn-success">Comprar</a></td>
 	          </tr>
 	         </c:forEach> 
 	         

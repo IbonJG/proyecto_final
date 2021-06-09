@@ -63,7 +63,7 @@ public class SocioDAO {
 	}
 
 	/**
-	 * Filtra los participantes por nombre, apellidos o email
+	 * Filtra los socios por nombre, apellidos o email
 	 * 
 	 * @param palabraBusqueda la palabra a buscar en las 3 columnas
 	 * @return ArrayList con todos los participantes filtrados

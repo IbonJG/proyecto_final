@@ -32,12 +32,16 @@
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2 active" href="perfil.jsp">Perfil</a>
-              </li>
+              <!-- Visible solo para administradores y socios logueados -->
+              <c:if test="${usuario_logeado != null }" >
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2 active" href="perfil.jsp">Perfil</a>
+	              </li>
+              </c:if> 
+              
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
 	              <li class="nav-item col-6 col-md-auto">

@@ -33,12 +33,16 @@
               <li class="nav-item col-6 col-md-auto">
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
-              </li>
+              <!-- Visible solo para administradores y socios logueados -->
+              <c:if test="${usuario_logeado != null }" >
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
+	              </li>
+              </c:if> 
+              
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
 	              <li class="nav-item col-6 col-md-auto">
@@ -91,12 +95,22 @@
          <jsp:include page="mensajes.jsp"></jsp:include>
         
         <br>
-        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a><br><br>
-        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Videojuego</a>
+        <a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Socio</a>
         <br><br>
         <form action="SociosListarController" method="get">
           <label for="filtrar" class="form-label">Buscar Socio</label>
           <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido o email">
+          <br>
+          <div class="d-grid gap-2 col-6 mx-auto">
+          <input type="submit" value="Filtrar" class="btn btn-block btn-primary">
+          </div>
+          <br><br>
+      	</form>
+      	<a href="SociosEditarController?id=0&formularioAlta.jsp">Añadir Nuevo Videojuego</a>
+        <br><br>
+      	<form action="TiendaListarController" method="get">
+          <label for="filtrar" class="form-label">Buscar Videojuego</label>
+          <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por titulo">
           <br>
           <div class="d-grid gap-2 col-6 mx-auto">
           <input type="submit" value="Filtrar" class="btn btn-block btn-primary">

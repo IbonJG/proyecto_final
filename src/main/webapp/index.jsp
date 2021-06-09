@@ -32,14 +32,14 @@
                 <a class="nav-link p-2" href="noticias.jsp">Noticias</a>
               </li>
                <!-- Visible solo para administradores y socios logueados -->
-               <c:if test="${usuario_logeado.administrador == true }" || "${usuario_logeado.administrador == false }" >
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
-              </li>
-              <li class="nav-item col-6 col-md-auto">
-                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
-              </li>
-              </c:if>
+              <c:if test="${usuario_logeado != null }" >
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="TiendaListarController">Tienda</a>
+	              </li>
+	              <li class="nav-item col-6 col-md-auto">
+	                <a class="nav-link p-2" href="perfil.jsp">Perfil</a>
+	              </li>
+              </c:if> 
               
               <!-- Visible solo para administradores -->
               <c:if test="${usuario_logeado.administrador == true }">
@@ -94,6 +94,7 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -107,6 +108,9 @@
         </div>
       	<div class="carousel-item">
           <img src="imagenes/Red_Dead_Redemption_2_Men_Rifles_Arthur_Morgan_Hat_580584_1920x1080.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="imagenes/1366_2000.jpeg" class="d-block w-100" alt="...">
         </div>
        </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
