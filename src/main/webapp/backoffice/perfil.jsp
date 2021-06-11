@@ -39,7 +39,7 @@
 	                <a class="nav-link p-2" href="backoffice/TiendaListarController">Tienda</a>
 	              </li>
 	              <li class="nav-item col-6 col-md-auto">
-	                <a class="nav-link p-2 active" href="perfil.jsp">Perfil</a>
+	                <a class="nav-link p-2 active" href="backoffice/perfil.jsp">Perfil</a>
 	              </li>
               </c:if> 
               

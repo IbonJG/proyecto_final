@@ -124,7 +124,7 @@
 	                    value="${socio.apellido1}"
 	                    required                      
 	                    class="form-control" 
-	                    placeholder="escribe el primer apellido">
+	                    placeholder="primer apellido">
 	            <br>
 	            <label for="apellido2" class="form-label">Segundo Apellido:</label>
 	            <input type="text" 
@@ -133,7 +133,7 @@
 	                    value="${socio.apellido2}"
 	                    required                      
 	                    class="form-control" 
-	                    placeholder="escribe el segundo apellido">
+	                    placeholder="segundo apellido">
 	            <br>   
 	            <label for="email" class="form-label">Email:</label>
 	            <input type="email" 

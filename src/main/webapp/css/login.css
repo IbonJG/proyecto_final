@@ -18,3 +18,7 @@ main h1{
 main label{
     color: white;
 }
+
+i:hover{
+    color: white;
+}

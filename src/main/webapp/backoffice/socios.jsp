@@ -98,7 +98,7 @@
         <br><br>
         <form action="backoffice/SociosListarController" method="get">
           <label for="filtrar" class="form-label">Buscar Socio</label>
-          <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido o email">
+          <input type="text" name="filtro" value="${filtro}" class="form-control" placeholder="Flitrar por nombre, apellido, email o dni">
           <br>
           <div class="d-grid gap-2 col-6 mx-auto">
           <input type="submit" value="Filtrar" class="btn btn-block btn-primary">
