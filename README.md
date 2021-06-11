@@ -3,7 +3,7 @@
 Proyecto Web Java EE siguiendo el patrón de MVC contra una bbdd SQLite para gestionar una tienda de videojuegos.
 
 screenshot 1
-[nombre](url)
+[si no carga la url leemos esto](https://raw.githubusercontent.com/IbonJG/proyecto_final/master/capturas/ScrenshootREADME1.PNG)
 
 - Técnologia
 - Maven 4.0.0
